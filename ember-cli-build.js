@@ -3,11 +3,22 @@
 const EmberApp = require("ember-cli/lib/broccoli/ember-app");
 
 module.exports = function (defaults) {
+  const ImageminGm = require("imagemin-gm");
+  const imageminGm = new ImageminGm();
+
   let app = new EmberApp(defaults, {
     // Add options here
     sassOptions: {
       extension: "sass",
       includePaths: ["node_modules/tailwindcss"],
+    },
+    imagemin: {
+      enabled: true,
+      plugins: [
+        require("imagemin-jpegtran")({ progressive: true }),
+        imageminGm.resize({ width: 500, height: 500, gravity: "Center" }),
+        imageminGm.convert("jpg"),
+      ],
     },
   });
 

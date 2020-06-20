@@ -39,6 +39,7 @@
     "ember-cli-babel": "^7.18.0",
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-htmlbars": "^4.2.3",
+    "ember-cli-imagemin": "^3.0.0",
     "ember-cli-inject-live-reload": "^2.0.2",
     "ember-cli-sass": "^10.0.1",
     "ember-cli-showdown": "^4.5.0",
@@ -77,6 +78,8 @@
   "dependencies": {
     "conventional-changelog": "^3.1.21",
     "dexie": "^3.0.1",
+    "imagemin-gm": "^2.0.2",
+    "imagemin-jpegtran": "^7.0.0",
     "tailwindcss": "^1.4.6"
   }
 }
