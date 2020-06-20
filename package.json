@@ -1,6 +1,6 @@
 {
   "name": "recipe-book",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "private": true,
   "description": "A very simple application with recipes using IndexedDB (Dexie) and Tailwind written in Ember with Typescript",
   "repository": "https://github.com/Drakeoon/recipe-book",
