@@ -9,12 +9,22 @@
   </Shared::Button>
 </nav>
 
-<div class="max-w-screen-xl m-auto">
+<div class="max-w-screen-xl m-auto grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+  {{#each this.recipes as |recipe|}}
+    <div class="bg-white rounded shadow-md">
+      <h1 class="p-3 border-solid border-b border-gray-300">
+        {{recipe.name}} - {{recipe.calories}} kcal
+      </h1>
 
+      <div class="p-3 text-center">
+        {{markdown-to-html recipe.description}}
+      </div>
+    </div>
+  {{/each}}
 </div>
 
 {{#if this.showRecipeModal}}
   <Shared::Modal @size="md">
-    <Forms::Recipe />
+    <Forms::Recipe @onSubmit={{this.addRecipe}} />
   </Shared::Modal>
 {{/if}}

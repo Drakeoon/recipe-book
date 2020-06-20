@@ -2,12 +2,15 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 
-interface FormsRecipeArgs {}
+interface FormsRecipeArgs {
+  onSubmit(recipe: Recipe): void;
+}
 
 interface Recipe {
   name: string;
   description: string;
-  [key: string]: string;
+  calories: number;
+  [key: string]: string | number;
 }
 
 interface InputField {
@@ -20,6 +23,7 @@ export default class FormsRecipe extends Component<FormsRecipeArgs> {
   @tracked recipe: Recipe = {
     name: "",
     description: "",
+    calories: 0,
   };
 
   inputFields: InputField[] = [
@@ -27,6 +31,11 @@ export default class FormsRecipe extends Component<FormsRecipeArgs> {
       label: "Recipe name",
       name: "name",
       type: "text",
+    },
+    {
+      label: "Calories",
+      name: "calories",
+      type: "number",
     },
     {
       label: "Description (Markdown)",
@@ -49,10 +58,16 @@ export default class FormsRecipe extends Component<FormsRecipeArgs> {
   }
 
   @action
-  createRecipe() {
-    // validate
+  createRecipe(e: any) {
+    e.preventDefault();
 
-    // logic with creating recipe
-    debugger;
+    const { onSubmit } = this.args;
+    const { name, description } = this.recipe;
+
+    if (!name || !description) {
+      return;
+    }
+
+    onSubmit(this.recipe);
   }
 }
