@@ -1,0 +1,20 @@
+<nav class="max-w-screen-xl m-auto p-5 mt-4 br-3 px-8 shadow-lg rounded-md flex justify-between items-center relative">
+  <h1 class="flex text-lg font-medium">
+    <span>Recipe</span>
+    <span class="text-orange-500">Book</span>
+  </h1>
+
+  <Shared::Button @onClick={{this.openRecipeModal}}>
+    Add new recipe
+  </Shared::Button>
+</nav>
+
+<div class="max-w-screen-xl m-auto">
+
+</div>
+
+{{#if this.showRecipeModal}}
+  <Shared::Modal @size="md">
+    <Forms::Recipe />
+  </Shared::Modal>
+{{/if}}

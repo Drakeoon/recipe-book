@@ -1,0 +1,16 @@
+<div class="flex justify-center p-5 flex-col rounded shadow">
+  <form {{on 'submit' this.createRecipe}}>
+    <h2 class="text-lg font-medium">Create a new recipe</h2>
+
+    <div class="flex flex-col mt-2">
+      {{#each this.inputFieldsWithValue as |field|}}
+        <Shared::Input @type={{field.type}} @label={{field.label}} @name={{field.name}} @value={{field.value}}
+          @onChange={{this.handleChange}} />
+      {{/each}}
+    </div>
+
+    <Shared::Button @type="submit" class="mt-4">
+      Submit
+    </Shared::Button>
+  </form>
+</div>

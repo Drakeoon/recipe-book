@@ -1,0 +1,14 @@
+<div class="flex flex-col mt-4">
+  <label for={{@name}} class="text-gray-700 text-md">
+    {{@label}}
+  </label>
+
+  {{#if (eq @type "textarea")}}
+    <textarea rows="5"
+      class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 mt-2 block w-full appearance-none leading-normal"
+      {{on "input" this.handleChange}} value={{@value}} />
+  {{else}}
+    <input id={{@name}} type={{@type}} value={{@value}} {{on "input" this.handleChange}}
+      class="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 mt-2 block w-full appearance-none leading-normal">
+  {{/if}}
+</div>

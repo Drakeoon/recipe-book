@@ -1,0 +1,6 @@
+<ModalDialog @containerClass="absolute top-0 right-0 bottom-0 left-0 flex items-start justify-center mt-32"
+  @hasOverlay={{true}}>
+  <div class="modal {{if @size (concat "-" @size)}}">
+    {{yield}}
+  </div>
+</ModalDialog>
